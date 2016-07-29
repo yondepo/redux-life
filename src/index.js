@@ -2,6 +2,11 @@
 import 'babel-polyfill';
 import React from 'react';
 import {render} from 'react-dom';
-import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import './styles/style.scss';
+import App from './components/App';
+
+render(
+  <App />,
+  document.getElementById('app')
+);
