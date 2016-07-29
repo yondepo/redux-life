@@ -1,6 +1,8 @@
 {
-  "name": "react-hello",
+  "name": "redux-life",
   "version": "1.0.0",
+  "author": "Ruslan K.",
+  "license": "MIT",
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch",
@@ -16,20 +18,14 @@
     "build": "babel-node tools/build.js",
     "postbuild": "babel-node tools/distServer.js"
   },
-  "author": "Ruslan K.",
-  "license": "ISC",
   "dependencies": {
     "babel-polyfill": "6.8.0",
-    "bootstrap": "3.3.6",
-    "jquery": "2.2.3",
     "react": "15.0.2",
     "react-dom": "15.0.2",
     "react-redux": "4.4.5",
     "react-router": "2.4.0",
-    "react-router-redux": "4.0.4",
     "redux": "3.5.2",
-    "redux-thunk": "2.0.1",
-    "toastr": "2.1.2"
+    "redux-thunk": "2.0.1"
   },
   "devDependencies": {
     "babel-cli": "6.8.0",
