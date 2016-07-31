@@ -1,0 +1,12 @@
+#app {
+  table {
+    border-spacing: 0px;
+    .cell {
+      width: 20px;
+      height: 20px;
+      background: black;
+      border: 1px solid orange;
+      margin: 0;
+    }
+  }
+}

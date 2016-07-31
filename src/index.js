@@ -11,6 +11,8 @@ import {toggle} from './actions/gridActions';
 let store = configureStore();
 
 render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('app')
 );
