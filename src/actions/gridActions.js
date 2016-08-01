@@ -25,6 +25,13 @@ export function clear() {
   };
 }
 
+export function resize(value) {
+  return {
+    type: types.RESIZE,
+    value
+  };
+}
+
 export function random() {
   return {
     type: types.RANDOM

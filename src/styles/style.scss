@@ -1,11 +1,41 @@
+$large-width: 1200px;
+$medium-width:900px;
+$small-width: 768px;
+
+$large-size: 60;
+$medium-size: 45;
+$small-size: 30;
+
+@mixin small {
+  @media only screen and (min-width : $small-width) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media only screen and (min-width : $medium-width) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media only screen and (min-width : $large-width) {
+    @content;
+  }
+}
+
 body {
   background-color: #212121;
   color: #FFFFFF;
   #app {
+    .title {
+      text-align: center;
+    }
+
     .toolbar {
-      max-width: 500px;
+      max-width: 550px;
       display: flex;
-      margin: 10px auto;
+      margin: 12px auto;
       justify-content: center;
       align-items: center;
 
@@ -14,11 +44,29 @@ body {
         border: none;
         border-right: 1px solid green;
         color: white;
-        padding: 15px 32px;
         text-align: center;
         text-decoration: none;
-        font-size: 16px;
         cursor: pointer;
+
+        height: 46px;
+        font-size: 12px;
+        padding: 10px 10px;
+        width: 80px;
+        @include medium {
+          font-size: 14px;
+          padding: 12px 14px;
+          width: 100px;
+        }
+
+        @include large {
+          font-size: 16px;
+          padding: 14px 16px;
+          width: 120px;
+        }
+
+        .fa {
+          margin-right: 5px;
+        }
       }
 
       .button-control:hover {
@@ -26,16 +74,72 @@ body {
       }
 
       .button-control:active {
+        border: none;
+        border-right: 1px solid green;
+      }
 
+      .label-control {
+        vertical-align: middle;
+        border: 2px solid #4CAF50;
+
+        font-size: 12px;
+        padding: 14px 6px;
+        width: 108px;
+        @include medium {
+          font-size: 14px;
+          padding: 13px 8px;
+          width: 130px;
+        }
+
+        @include large {
+          font-size: 16px;
+          padding: 11px 10px;
+          width: 150px;
+        }
+      }
+
+      .select-control {
+        background-color: #4CAF50;
+        height: 46px;
+        select {
+          color: #FFFFFF;
+          background: transparent;
+          border: none;
+          padding: 0 15px;
+          font-size: 16px;
+          height: 46px;
+          cursor: pointer;
+
+          option {
+            background-color: #212121;
+          }
+        }
+      }
+
+      .select-control:hover {
+        opacity: 0.8;
       }
     }
 
     .grid {
       border-spacing: 0px;
       margin: 0 auto;
+      border-top: 1px solid #212121;
+      border-left: 1px solid #212121;
+      height: 370px;
+      width: 365px;
+
+      @include medium {
+        height: 450px;
+        width: 450px;
+      }
+
+      @include large {
+        height: 538px;
+        width: 538px;
+      }
+
       .cell {
-        width: 10px;
-        height: 10px;
         background: black;
         border-left: 1px solid #212121;
         border-bottom: 1px solid #212121;
@@ -45,6 +149,24 @@ body {
 
       .cell:hover {
         opacity: 0.8;
+      }
+    }
+
+    .small {
+      .cell {
+        width: 100% / $small-size;
+      }
+    }
+
+    .medium {
+      .cell {
+        width: 100% / $medium-size;
+      }
+    }
+
+    .large {
+      .cell {
+        width: 100% / $large-size;
       }
     }
   }

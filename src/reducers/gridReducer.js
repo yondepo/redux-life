@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
 
-const DEFAULT_SIZE = 30;
+const DEFAULT_SIZE = 45;
 const initialState = Array(DEFAULT_SIZE).fill(Array(DEFAULT_SIZE).fill(0));
 
 function set(i, value, xs) {
@@ -48,12 +48,13 @@ function willLive(isCellAlive, neighbours) {
 function nextGrid(grid) {
   return grid.map((row, y) =>
     row.map((cell, x) =>
-      willLive(cell, neighbours({x, y}, grid))
+      +willLive(cell, neighbours({x, y}, grid))
     )
   );
 }
 
 export default function gridReducer(state = initialState, action) {
+
   switch (action.type) {
     case types.TOGGLE:
       return toggle(action.cell, state);
@@ -61,6 +62,8 @@ export default function gridReducer(state = initialState, action) {
       return nextGrid(state);
     case types.CLEAR:
       return initialState;
+    case types.RESIZE:
+      return Array(+action.value).fill(Array(+action.value).fill(0));
     default:
       return state;
   }

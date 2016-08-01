@@ -12,8 +12,8 @@ const Cell = ({point, current, toggle}) => {
       onMouseDown={onMouseEvent(toggle, point)}
       style={current
         ? (current == 1
-          ? { backgroundColor: '#673AB7' } 
-          : { backgroundColor: '#512DA8' })
+          ? { backgroundColor: '#4CAF50' }
+          : { backgroundColor: '#388E3C' })
         : null}>
     </td>
   );

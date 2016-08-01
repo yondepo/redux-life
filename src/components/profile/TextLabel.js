@@ -9,4 +9,8 @@ const TextLabel = ({label}) => {
   );
 };
 
+TextLabel.propTypes = {
+  label: PropTypes.string
+};
+
 export default TextLabel;
