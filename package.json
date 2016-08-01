@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "author": "Ruslan K.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yondepo/redux-life.git"
+  },
   "scripts": {
     "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch",
