@@ -92,7 +92,7 @@ body {
         }
 
         @include large {
-          font-size: 16px;
+          font-size: 17px;
           padding: 11px 10px;
           width: 150px;
         }
@@ -100,15 +100,29 @@ body {
 
       .select-control {
         background-color: #4CAF50;
-        height: 46px;
+        border-right: 1px solid green;
         select {
           color: #FFFFFF;
           background: transparent;
           border: none;
-          padding: 0 15px;
-          font-size: 16px;
+
           height: 46px;
           cursor: pointer;
+
+          font-size: 12px;
+          padding: 0 4px;
+          width: 120px;
+          @include medium {
+            font-size: 14px;
+            padding: 0 12px;
+            width: 150px;
+          }
+
+          @include large {
+            font-size: 16px;
+            padding: 0 16px;
+            width: 180px;
+          }
 
           option {
             background-color: #212121;

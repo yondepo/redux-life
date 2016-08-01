@@ -1,8 +1,9 @@
 import * as types from '../constants/actionTypes';
 
-export function start() {
+export function start(startedAt) {
   return {
-    type: types.START
+    type: types.START,
+    startedAt
   };
 }
 
@@ -28,6 +29,13 @@ export function clear() {
 export function resize(value) {
   return {
     type: types.RESIZE,
+    value
+  };
+}
+
+export function changeSlowdown(value) {
+  return {
+    type: types.CHANGE_SPEED,
     value
   };
 }

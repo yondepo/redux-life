@@ -53,13 +53,21 @@ function nextGrid(grid) {
   );
 }
 
+function isFrame(frame, slowdown) {
+  if (!frame) return 1;
+  return +(frame % slowdown == 0);
+}
+
 export default function gridReducer(state = initialState, action) {
 
   switch (action.type) {
     case types.TOGGLE:
       return toggle(action.cell, state);
     case types.TICK:
-      return nextGrid(state);
+      if (isFrame(action.payload.frame, action.payload.slowdown)) {
+        return nextGrid(state);
+      }
+      return state;
     case types.CLEAR:
       return initialState;
     case types.RESIZE:

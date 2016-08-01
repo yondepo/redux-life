@@ -20,7 +20,8 @@ class App extends React.Component {
           cells={this.props.grid
             .reduce((arr, row) => arr.concat(row))
             .reduce((sum, cell) => sum + cell)}
-          size={this.props.grid.length}/>
+          size={this.props.grid.length}
+          changeSlowdown={this.props.actions.changeSlowdown}/>
         <Grid grid={this.props.grid} toggle={this.props.actions.toggle}/>
       </div>
     );

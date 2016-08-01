@@ -25,12 +25,12 @@ class Toolbar extends React.Component {
   next() {
     if (this.isEnd()) return;
     this.props.tick({
-      frame: null
+      frame: 0
     });
   }
 
   clear() {
-    if (this.props.profile.running) {
+    if (this.props.profile.startedAt) {
       this.stop();
     }
 
@@ -39,11 +39,11 @@ class Toolbar extends React.Component {
 
   toggleAuto(tick) {
     return () => {
-      if (this.props.profile.running) {
+      if (this.props.profile.startedAt) {
         return this.stop();
       }
 
-      this.props.start();
+      this.props.start(Date.now());
       this.start(tick);
     };
   }
@@ -51,7 +51,9 @@ class Toolbar extends React.Component {
   start(tick) {
     if (this.isEnd()) return;
     tick({
-      frame: window.requestAnimationFrame(() => this.start(tick))
+      frame: window.requestAnimationFrame(() => this.start(tick)),
+      now: Date.now(),
+      slowdown: this.props.profile.slowdown
     });
   }
 
@@ -61,21 +63,32 @@ class Toolbar extends React.Component {
   }
 
   render() {
-    const {profile, tick, cells, size, resize} = this.props;
-    const options = [
-      { label: 'Small size', size: 30 },
-      { label: 'Medium size', size: 45},
-      { label: 'Large size', size: 60 }
+    const {profile, tick, cells, size, resize, changeSlowdown} = this.props;
+    const sizeOptions = [
+      { label: 'Small size', value: 30 },
+      { label: 'Medium size', value: 45},
+      { label: 'Large size', value: 60 }
     ];
-    const selected = size;
+
+    const speedOptions = [
+      { label: 'Low speed', value: 30 },
+      { label: 'Medium speed', value: 10},
+      { label: 'High speed', value: 3 },
+      { label: 'Maximum speed', value: 1 }
+    ];
 
     return (
       <div>
         <div className="toolbar">
           <Select
-            options={options}
-            selected={selected}
+            options={sizeOptions}
+            selected={size}
             action={resize}/>
+          <Select
+            options={speedOptions}
+            selected={profile.slowdown}
+            action={changeSlowdown}/>
+          <TextLabel label={'FPS: ' + profile.fps} />
         </div>
         <div className="toolbar">
           <Button
@@ -84,10 +97,10 @@ class Toolbar extends React.Component {
             fa={'step-forward'}/>
           <Button
             onclick={this.toggleAuto(tick)}
-            label={profile.running
+            label={profile.startedAt
                 ? 'STOP'
                 : 'START'}
-            fa={profile.running
+            fa={profile.startedAt
                 ? 'stop'
                 : 'play'}/>
           <Button
@@ -109,7 +122,8 @@ Toolbar.propTypes = {
   resize: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   cells: PropTypes.number.isRequired,
-  size: PropTypes.number.isRequired
+  size: PropTypes.number.isRequired,
+  changeSlowdown: PropTypes.func.isRequired
 };
 
 export default Toolbar;
