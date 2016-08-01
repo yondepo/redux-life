@@ -1,6 +1,6 @@
 # Game of Life using Redux
 
-(demo)[https://yondepo.github.io/redux-life/]
+[Play demo](https://yondepo.github.io/redux-life/)
 
 ### Instalation
 
