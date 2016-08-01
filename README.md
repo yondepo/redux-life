@@ -1,5 +1,7 @@
 # Game of Life using Redux
 
+[Play demo](https://yondepo.github.io/redux-life/)
+
 ### Instalation
 
 ```sh
