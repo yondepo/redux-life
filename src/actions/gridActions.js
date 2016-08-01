@@ -31,8 +31,9 @@ export function random() {
   };
 }
 
-export function tick() {
+export function tick(payload) {
   return {
-    type: types.TICK
+    type: types.TICK,
+    payload
   };
 }

@@ -3,7 +3,7 @@ import Row from './Row';
 
 const Grid = ({grid, toggle}) => {
   return (
-    <table>
+    <table className="grid">
       <tbody>
         {grid.map((row, y) => <Row key={y} row={row} y={y} toggle={toggle} />)}
       </tbody>

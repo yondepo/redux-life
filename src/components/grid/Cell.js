@@ -10,7 +10,11 @@ const Cell = ({point, current, toggle}) => {
     <td className="cell"
       onMouseOver={onMouseEvent(toggle, point)}
       onMouseDown={onMouseEvent(toggle, point)}
-      style={current? { backgroundColor: '#fff' } : null}>
+      style={current
+        ? (current == 1
+          ? { backgroundColor: '#673AB7' } 
+          : { backgroundColor: '#512DA8' })
+        : null}>
     </td>
   );
 };
