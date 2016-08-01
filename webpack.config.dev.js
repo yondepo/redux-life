@@ -13,7 +13,7 @@ export default {
   target: 'web',
   output: {
     path: __dirname + '/dist',
-    publicPath: '/redux-life/',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   devServer: {
