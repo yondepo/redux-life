@@ -14,7 +14,8 @@
     "build:html": "babel-node tools/buildHTML.js",
     "prebuild": "npm-run-all clean-dist lint build:html",
     "build": "babel-node tools/build.js",
-    "postbuild": "babel-node tools/distServer.js"
+    "postbuild": "babel-node tools/distServer.js",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "babel-polyfill": "6.8.0",
@@ -47,6 +48,7 @@
     "express": "4.13.4",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
+    "gh-pages": "^0.11.0",
     "jsdom": "8.5.0",
     "node-sass": "^3.8.0",
     "npm-run-all": "1.8.0",
