@@ -4,5 +4,6 @@ export const TOGGLE = 'TOGGLE';
 export const TICK = 'TICK';
 export const CLEAR = 'CLEAR';
 export const RANDOM = 'RANDOM';
-export const RESIZE = 'RESIZE';
+export const CHANGE_LAYOUT = 'CHANGE_LAYOUT';
 export const CHANGE_SPEED = 'CHANGE_SPEED';
+export const RESIZE_VIEW = 'RESIZE_VIEW';

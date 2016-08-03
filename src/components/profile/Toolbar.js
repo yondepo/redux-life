@@ -24,7 +24,7 @@ class Toolbar extends React.Component {
 
   next() {
     if (this.isEnd()) return;
-    this.props.tick({
+    this.props.actions.tick({
       frame: 0
     });
   }
@@ -34,7 +34,7 @@ class Toolbar extends React.Component {
       this.stop();
     }
 
-    this.props.clear();
+    this.props.actions.clear();
   }
 
   toggleAuto(tick) {
@@ -43,7 +43,7 @@ class Toolbar extends React.Component {
         return this.stop();
       }
 
-      this.props.start(Date.now());
+      this.props.actions.start(Date.now());
       this.start(tick);
     };
   }
@@ -59,11 +59,11 @@ class Toolbar extends React.Component {
 
   stop() {
     window.cancelAnimationFrame(this.props.profile.frame);
-    this.props.stop();
+    this.props.actions.stop();
   }
 
   render() {
-    const {profile, tick, cells, size, resize, changeSlowdown} = this.props;
+    const {profile, cells, size, actions} = this.props;
     const sizeOptions = [
       { label: 'Small size', value: 30 },
       { label: 'Medium size', value: 45},
@@ -83,11 +83,11 @@ class Toolbar extends React.Component {
           <Select
             options={sizeOptions}
             selected={size}
-            action={resize}/>
+            action={actions.changeLayout}/>
           <Select
             options={speedOptions}
             selected={profile.slowdown}
-            action={changeSlowdown}/>
+            action={actions.changeSlowdown}/>
           <TextLabel label={'FPS: ' + profile.fps} />
         </div>
         <div className="toolbar">
@@ -96,7 +96,7 @@ class Toolbar extends React.Component {
             label={'NEXT'}
             fa={'step-forward'}/>
           <Button
-            onclick={this.toggleAuto(tick)}
+            onclick={this.toggleAuto(actions.tick)}
             label={profile.startedAt
                 ? 'STOP'
                 : 'START'}
@@ -115,15 +115,10 @@ class Toolbar extends React.Component {
 }
 
 Toolbar.propTypes = {
-  tick: PropTypes.func.isRequired,
-  clear: PropTypes.func.isRequired,
-  start: PropTypes.func.isRequired,
-  stop: PropTypes.func.isRequired,
-  resize: PropTypes.func.isRequired,
+  actions: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   cells: PropTypes.number.isRequired,
-  size: PropTypes.number.isRequired,
-  changeSlowdown: PropTypes.func.isRequired
+  size: PropTypes.number.isRequired
 };
 
 export default Toolbar;

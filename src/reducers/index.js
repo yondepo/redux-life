@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import grid from './gridReducer';
+import board from './boardReducer';
 import profile from './profileReducer';
 
 export default combineReducers({
-  grid,
+  board,
   profile
 });

@@ -7,7 +7,6 @@ import './styles/style.scss';
 import 'font-awesome/css/font-awesome.css';
 import App from './components/App';
 import configureStore from './store/configureStore';
-import {toggle} from './actions/gridActions';
 
 let store = configureStore();
 

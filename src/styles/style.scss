@@ -28,6 +28,10 @@ body {
   background-color: #212121;
   color: #FFFFFF;
   #app {
+    svg {
+      display: block;
+    }
+
     .title {
       text-align: center;
     }
@@ -132,18 +136,6 @@ body {
       margin: 0 auto;
       border-top: 1px solid #212121;
       border-left: 1px solid #212121;
-      height: 365px;
-      width: 365px;
-
-      @include medium {
-        height: 450px;
-        width: 450px;
-      }
-
-      @include large {
-        height: 538px;
-        width: 538px;
-      }
 
       .cell {
         background: black;
@@ -155,24 +147,6 @@ body {
 
       .cell:hover {
         opacity: 0.8;
-      }
-    }
-
-    .small {
-      .cell {
-        width: 100% / $small-size;
-      }
-    }
-
-    .medium {
-      .cell {
-        width: 100% / $medium-size;
-      }
-    }
-
-    .large {
-      .cell {
-        width: 100% / $large-size;
       }
     }
   }

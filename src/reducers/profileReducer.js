@@ -42,12 +42,14 @@ export default function profileReducer(state = initialState, action) {
       return Object.assign({}, state, {
         slowdown: +action.value
       });
-      case types.RESIZE:
-        return Object.assign({}, initialState, {
-          slowdown: state.slowdown
-        });
+    case types.CHANGE_LAYOUT:
+      return Object.assign({}, initialState, {
+        slowdown: state.slowdown
+      });
     case types.CLEAR:
-      return initialState;
+      return Object.assign({}, initialState, {
+        slowdown: state.slowdown
+      });
     default:
       return state;
   }
