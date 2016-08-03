@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import CellSVG from './CellSVG';
 
-const Board = ({board, toggle}) => {
+const BoardSVG = ({board, toggle}) => {
   return (
     <svg
       width={board.boardDim}
@@ -19,9 +19,9 @@ const Board = ({board, toggle}) => {
   );
 };
 
-Board.propTypes = {
+BoardSVG.propTypes = {
   board: PropTypes.object.isRequired,
   toggle: PropTypes.func.isRequired
 };
 
-export default Board;
+export default BoardSVG;

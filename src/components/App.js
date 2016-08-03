@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as boardActions from '../actions/boardActions';
 import BoardSVG from './boardSVG/BoardSVG';
 import BoardTD from './boardTD/BoardTD';
+import BoardCanvas from './boardCanvas/BoardCanvas';
 import Toolbar from './profile/Toolbar';
 
 class App extends React.Component {
@@ -39,7 +40,7 @@ class App extends React.Component {
             .reduce((arr, row) => arr.concat(row))
             .reduce((sum, cell) => sum + cell)}
           size={this.props.board.grid.length} />
-        <BoardSVG
+        <BoardCanvas
           board={this.props.board}
           toggle={this.props.actions.toggle}/>
       </div>

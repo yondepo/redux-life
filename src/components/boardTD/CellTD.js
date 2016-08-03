@@ -5,7 +5,7 @@ const onMouseEvent = (toggle, alive) => (e) => {
   toggle(alive);
 };
 
-const Cell = ({point, current, toggle}) => {
+const CellTD = ({point, current, toggle}) => {
   return (
     <td className="cell"
       onMouseOver={onMouseEvent(toggle, point)}
@@ -19,10 +19,10 @@ const Cell = ({point, current, toggle}) => {
   );
 };
 
-Cell.propTypes = {
+CellTD.propTypes = {
   point: PropTypes.object.isRequired,
   current: PropTypes.number.isRequired,
   toggle: PropTypes.func.isRequired
 };
 
-export default Cell;
+export default CellTD;

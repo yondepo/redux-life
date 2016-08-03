@@ -5,7 +5,7 @@ const onMouseEvent = (toggle, alive) => (e) => {
   toggle(alive);
 };
 
-const Cell = ({point, current, toggle, cellDim}) => {
+const CellSVG = ({point, current, toggle, cellDim}) => {
   return (
     <rect
       width={cellDim}
@@ -26,11 +26,11 @@ const Cell = ({point, current, toggle, cellDim}) => {
   );
 };
 
-Cell.propTypes = {
+CellSVG.propTypes = {
   point: PropTypes.object.isRequired,
   current: PropTypes.number.isRequired,
   toggle: PropTypes.func.isRequired,
   cellDim: PropTypes.number.isRequired
 };
 
-export default Cell;
+export default CellSVG;

@@ -1,16 +1,11 @@
 import React, {PropTypes} from 'react';
 import CellTD from './CellTD';
 
-const Grid = ({board, toggle}) => {
-  let sizeClass = 'small';
-  if (board.grid.length == 45) {
-    sizeClass = 'medium';
-  } else if (board.grid.length == 60) {
-    sizeClass = 'large';
-  }
+const BoardTD = ({board, toggle}) => {
+
   return (
     <table
-      className={`grid ${sizeClass}`}
+      className={`grid`}
       style={{
         width: board.boardDim,
         height: board.boardDim
@@ -30,9 +25,9 @@ const Grid = ({board, toggle}) => {
   );
 };
 
-Grid.propTypes = {
+BoardTD.propTypes = {
   board: PropTypes.object.isRequired,
   toggle: PropTypes.func.isRequired
 };
 
-export default Grid;
+export default BoardTD;
