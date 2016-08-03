@@ -7,8 +7,25 @@ import BoardTD from './boardTD/BoardTD';
 import Toolbar from './profile/Toolbar';
 
 class App extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
 
+    this.updateView = this.updateView.bind(this);
+  }
+
+  componentWillMount() {
+    this.updateView();
+  }
+  componentDidMount() {
+      window.addEventListener("resize", this.updateView);
+  }
+  componentWillUnmount() {
+      window.removeEventListener("resize", this.updateView);
+  }
+
+  updateView() {
+    let winWidth = window.innerWidth;
+    this.props.actions.resizeView(winWidth);
   }
 
   render() {
@@ -22,7 +39,7 @@ class App extends React.Component {
             .reduce((arr, row) => arr.concat(row))
             .reduce((sum, cell) => sum + cell)}
           size={this.props.board.grid.length} />
-        <BoardTD
+        <BoardSVG
           board={this.props.board}
           toggle={this.props.actions.toggle}/>
       </div>

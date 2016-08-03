@@ -11,7 +11,7 @@ const Cell = ({point, current, toggle, cellDim}) => {
       width={cellDim}
       height={cellDim}
       stroke="#212121"
-      strokeWidth="1"
+      strokeWidth="0.5"
       onMouseOver={onMouseEvent(toggle, point)}
       onMouseDown={onMouseEvent(toggle, point)}
       fill={current

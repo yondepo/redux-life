@@ -66,7 +66,7 @@ function isFrame(frame, slowdown) {
   return +(frame % slowdown == 0);
 }
 
-function calculateDims(winWidth) {
+function calculateDims(winWidth, gridLength) {
   let boardDim = 365;
   if (winWidth > 900) {
     boardDim = 450;
@@ -74,7 +74,12 @@ function calculateDims(winWidth) {
   if (winWidth > 1200) {
     boardDim = 538;
   }
-  let cellDim = boardDim / this.props.board.grid.length;
+  let cellDim = calculateCellDim(boardDim, gridLength);
+  return {cellDim, boardDim};
+}
+
+function calculateCellDim(boardDim, gridLength) {
+  return boardDim / gridLength;
 }
 
 export default function gridReducer(state = initialState, action) {
@@ -96,8 +101,11 @@ export default function gridReducer(state = initialState, action) {
       });
     case types.CHANGE_LAYOUT:
       return Object.assign({}, state, {
-        grid: Array(+action.value).fill(Array(+action.value).fill(0))
+        grid: Array(+action.value).fill(Array(+action.value).fill(0)),
+        cellDim: calculateCellDim(state.boardDim, +action.value)
       });
+    case types.RESIZE_VIEW:
+      return Object.assign({}, state, calculateDims(action.winWidth, state.grid.length));
     default:
       return state;
   }
