@@ -65,21 +65,31 @@ class Toolbar extends React.Component {
   render() {
     const {profile, cells, size, actions} = this.props;
     const sizeOptions = [
-      { label: 'Small size', value: 30 },
-      { label: 'Medium size', value: 45},
-      { label: 'Large size', value: 60 }
+      { label: 'Small', value: 30 },
+      { label: 'Medium', value: 45},
+      { label: 'Large', value: 60 }
     ];
 
     const speedOptions = [
-      { label: 'Low speed', value: 30 },
-      { label: 'Medium speed', value: 10},
-      { label: 'High speed', value: 3 },
-      { label: 'Maximum speed', value: 1 }
+      { label: 'Low sp.', value: 30 },
+      { label: 'Medium sp.', value: 10},
+      { label: 'High sp.', value: 3 },
+      { label: 'Maximum sp.', value: 1 }
+    ];
+
+    const typeOptions = [
+      { label: 'Table', value: 'table' },
+      { label: 'SVG', value: 'svg' },
+      { label: 'Canvas', value: 'canvas' }
     ];
 
     return (
       <div>
         <div className="toolbar">
+          <Select
+            options={typeOptions}
+            selected={profile.type}
+            action={actions.changeType}/>
           <Select
             options={sizeOptions}
             selected={size}

@@ -30,6 +30,16 @@ class App extends React.Component {
   }
 
   render() {
+    let Board = BoardCanvas;
+    switch (this.props.profile.type) {
+      case 'table':
+        Board = BoardTD;
+        break;
+      case 'svg':
+        Board = BoardSVG;
+        break;
+    }
+
     return (
       <div>
         <h1 className="title">Conway's Game of Life</h1>
@@ -40,7 +50,7 @@ class App extends React.Component {
             .reduce((arr, row) => arr.concat(row))
             .reduce((sum, cell) => sum + cell)}
           size={this.props.board.grid.length} />
-        <BoardCanvas
+        <Board
           board={this.props.board}
           toggle={this.props.actions.toggle}/>
       </div>

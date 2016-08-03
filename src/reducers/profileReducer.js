@@ -6,7 +6,8 @@ const initialState = {
   slowdown: 1,
   startedAt: null,
   fps: 0,
-  ticksSinceStart: 0
+  ticksSinceStart: 0,
+  type: 'canvas'
 };
 
 function calculateFPS(ticks, startedAt, now) {
@@ -49,6 +50,10 @@ export default function profileReducer(state = initialState, action) {
     case types.CLEAR:
       return Object.assign({}, initialState, {
         slowdown: state.slowdown
+      });
+    case types.CHANGE_TYPE:
+      return Object.assign({}, state, {
+        type: action.value
       });
     default:
       return state;

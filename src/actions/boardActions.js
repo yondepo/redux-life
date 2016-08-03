@@ -40,6 +40,13 @@ export function changeSlowdown(value) {
   };
 }
 
+export function changeType(value) {
+  return {
+    type: types.CHANGE_TYPE,
+    value
+  };
+}
+
 export function random() {
   return {
     type: types.RANDOM
