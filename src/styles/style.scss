@@ -2,9 +2,10 @@ $large-width: 1200px;
 $medium-width:900px;
 $small-width: 768px;
 
-$large-size: 60;
-$medium-size: 45;
-$small-size: 30;
+$bg-color: #212121;
+$text-color: #FFFFFF;
+$control-color: #0288D1;
+$control-border-color: #303F9F;
 
 @mixin small {
   @media only screen and (min-width : $small-width) {
@@ -25,8 +26,8 @@ $small-size: 30;
 }
 
 body {
-  background-color: #212121;
-  color: #FFFFFF;
+  background-color: $bg-color;
+  color: $text-color;
   #app {
     svg, canvas {
       display: block;
@@ -65,19 +66,20 @@ body {
         }
       }
 
-      .button-control {
-        background-color: #4CAF50;
+      .control{
+        background-color: $control-color;
         border: none;
-        border-right: 1px solid green;
-        color: white;
+        border-right: 1px solid $control-border-color;
+        color: $text-color;
         text-align: center;
         text-decoration: none;
         cursor: pointer;
-
-        padding: 10px 10px;
         flex-grow: 2;
-
         height: 100%;
+      }
+
+      .button-control {
+        padding: 10px 10px;
         .fa {
           margin-right: 5px;
         }
@@ -87,14 +89,9 @@ body {
       	opacity: 0.8;
       }
 
-      .button-control:active {
-        border: none;
-        border-right: 1px solid green;
-      }
-
       .label-control {
         vertical-align: middle;
-        border: 2px solid #4CAF50;
+        border: 2px solid $control-color;
         line-height: 46px;
 
         width: 120px;
@@ -108,20 +105,15 @@ body {
       }
 
       .select-control {
-        height: 100%;
-        background-color: #4CAF50;
-        border-right: 1px solid green;
-        flex-grow: 2;
         select {
           height: 100%;
           width: 100%;
-          color: #FFFFFF;
+          color: $text-color;
           background: transparent;
           border: none;
           cursor: pointer;
-
           option {
-            background-color: #212121;
+            background-color: $bg-color;
           }
         }
       }
@@ -134,21 +126,7 @@ body {
     .grid {
       border-spacing: 0px;
       margin: 0 auto;
-      border-top: 1px solid #212121;
-      border-left: 1px solid #212121;
       cursor: pointer;
-
-      .cell {
-        background: black;
-        border-left: 1px solid #212121;
-        border-bottom: 1px solid #212121;
-        margin: 0;
-        cursor: pointer;
-      }
-
-      .cell:hover {
-        opacity: 0.8;
-      }
     }
   }
 }

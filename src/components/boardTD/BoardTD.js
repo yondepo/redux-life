@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react';
 import CellTD from './CellTD';
+import * as styles from '../../constants/styles';
 
 const BoardTD = ({board, toggle}) => {
 
@@ -8,7 +9,13 @@ const BoardTD = ({board, toggle}) => {
       className={`grid`}
       style={{
         width: board.boardDim,
-        height: board.boardDim
+        height: board.boardDim,
+        borderColor: styles.STROKE_COLOR,
+        borderStyle: 'solid',
+        borderTopWidth: 1,
+        borderLeftWidth: 1,
+        borderRightWidth: 0,
+        borderBottomWidth: 0
       }}>
       <tbody>
         {board.grid.map((row, y) =>

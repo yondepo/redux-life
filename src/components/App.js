@@ -6,6 +6,7 @@ import BoardSVG from './boardSVG/BoardSVG';
 import BoardTD from './boardTD/BoardTD';
 import BoardCanvas from './boardCanvas/BoardCanvas';
 import Toolbar from './profile/Toolbar';
+import ForkMeRibbon from './ForkMeRibbon';
 
 class App extends React.Component {
   constructor(props) {
@@ -42,6 +43,7 @@ class App extends React.Component {
 
     return (
       <div>
+        <ForkMeRibbon />
         <h1 className="title">Conway's Game of Life</h1>
         <Toolbar
           profile={this.props.profile}

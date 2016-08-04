@@ -1,4 +1,5 @@
 import React, {PropTypes} from 'react';
+import * as styles from '../../constants/styles';
 
 function cell(props) {
   const {ctx, x, y, cellDim, current} = props;
@@ -6,8 +7,8 @@ function cell(props) {
   ctx.rect(x * cellDim, y * cellDim, cellDim, cellDim);
   if (current) {
     ctx.fillStyle = current == 1
-      ?'#4CAF50'
-      : '#388E3C';
+      ? styles.BORN_CELL_COLOR
+      : styles.ALIVE_CELL_COLOR;
     ctx.fill();
   }
   ctx.stroke();
@@ -48,9 +49,9 @@ class BoardCanvas extends React.Component {
   updateCanvas() {
     const {grid, cellDim, boardDim} = this.props.board;
     const ctx = this.refs.canvas.getContext('2d');
-    ctx.fillStyle = '#000000';
+    ctx.fillStyle = styles.DEFAULT_COLOR;
     ctx.fillRect(0, 0, boardDim, boardDim);
-    ctx.strokeStyle = '#212121';
+    ctx.strokeStyle = styles.STROKE_COLOR;
     ctx.lineWidth = 0.5;
     for (let y = 0; y < grid.length; y++) {
       for (let x = 0; x < grid[y].length; x++) {
@@ -72,7 +73,7 @@ class BoardCanvas extends React.Component {
         height={this.props.board.boardDim}
         className="grid"
         onMouseDown={this.onMouseEvent}
-        onMouseMove={this.onMouseEvent}>
+        >
       </canvas>
     );
   }

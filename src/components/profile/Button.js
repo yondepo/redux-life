@@ -3,7 +3,7 @@ import React, {PropTypes} from 'react';
 const Button = ({onclick, label, fa}) => {
   return (
     <button
-      className="button-control"
+      className="control button-control"
       onClick={onclick}>
       <i className={`fa fa-${fa}`} aria-hidden="true"></i>
       {label}

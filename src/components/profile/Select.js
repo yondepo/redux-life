@@ -9,7 +9,7 @@ const Select = ({options, selected, action}) => {
   const onChange = onSelectOption(action).bind(this);
 
   return (
-    <div className="select-control">
+    <div className="control select-control">
       <select value={selected} onChange={onChange}>
         {options.map((option) =>
           <option key={option.value} value={option.value}>{option.label}</option>)}

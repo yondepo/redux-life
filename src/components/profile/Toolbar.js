@@ -75,13 +75,13 @@ class Toolbar extends React.Component {
             selected={profile.type.toString()}
             action={actions.changeType}/>
           <Select
-            options={options.SIZE}
-            selected={size.toString()}
-            action={actions.changeLayout}/>
-          <Select
             options={options.SPEED}
             selected={profile.slowdown.toString()}
             action={actions.changeSlowdown}/>
+          <Select
+            options={options.SIZE}
+            selected={size.toString()}
+            action={actions.changeLayout}/>
           <TextLabel label={'FPS: ' + profile.fps} />
         </div>
         <div className="toolbar">
