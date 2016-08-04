@@ -1,25 +1,17 @@
 import * as types from '../constants/actionTypes';
+import {DEFAULT_SPEED, DEFAULT_TYPE} from '../constants/options';
+import {calculateFPS, isFrame} from '../lib/profile';
+
 
 const initialState = {
   ticks: 0,
   frame: null,
-  slowdown: 1,
+  slowdown: DEFAULT_SPEED,
   startedAt: null,
   fps: 0,
   ticksSinceStart: 0,
-  type: 'canvas'
+  type: DEFAULT_TYPE
 };
-
-function calculateFPS(ticks, startedAt, now) {
-  return startedAt && ticks >= 2 && now
-    ? Math.ceil(ticks / ((now - startedAt) / 1000))
-    : 0;
-}
-
-function isFrame(frame, slowdown) {
-  if (!frame) return 1;
-  return +(frame % slowdown == 0);
-}
 
 export default function profileReducer(state = initialState, action) {
   switch (action.type) {

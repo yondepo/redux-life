@@ -66,3 +66,10 @@ export function resizeView(winWidth) {
     winWidth
   };
 }
+
+export function setGrid(grid) {
+  return {
+    type: types.SET_GRID,
+    grid
+  };
+}

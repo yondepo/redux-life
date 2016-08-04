@@ -20,7 +20,7 @@ const Select = ({options, selected, action}) => {
 
 Select.propTypes = {
   options: PropTypes.array.isRequired,
-  selected: PropTypes.number.isRequired
+  selected: PropTypes.string.isRequired
 };
 
 export default Select;

@@ -2,6 +2,7 @@ import React, {PropTypes} from 'react';
 import Button from './Button';
 import TextLabel from './TextLabel';
 import Select from './Select';
+import * as options from '../../constants/options';
 
 
 class Toolbar extends React.Component {
@@ -64,39 +65,22 @@ class Toolbar extends React.Component {
 
   render() {
     const {profile, cells, size, actions} = this.props;
-    const sizeOptions = [
-      { label: 'Small', value: 30 },
-      { label: 'Medium', value: 45},
-      { label: 'Large', value: 60 }
-    ];
 
-    const speedOptions = [
-      { label: 'Low sp.', value: 30 },
-      { label: 'Medium sp.', value: 10},
-      { label: 'High sp.', value: 3 },
-      { label: 'Maximum sp.', value: 1 }
-    ];
-
-    const typeOptions = [
-      { label: 'Table', value: 'table' },
-      { label: 'SVG', value: 'svg' },
-      { label: 'Canvas', value: 'canvas' }
-    ];
 
     return (
       <div>
         <div className="toolbar">
           <Select
-            options={typeOptions}
-            selected={profile.type}
+            options={options.TYPE}
+            selected={profile.type.toString()}
             action={actions.changeType}/>
           <Select
-            options={sizeOptions}
-            selected={size}
+            options={options.SIZE}
+            selected={size.toString()}
             action={actions.changeLayout}/>
           <Select
-            options={speedOptions}
-            selected={profile.slowdown}
+            options={options.SPEED}
+            selected={profile.slowdown.toString()}
             action={actions.changeSlowdown}/>
           <TextLabel label={'FPS: ' + profile.fps} />
         </div>

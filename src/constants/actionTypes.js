@@ -8,3 +8,4 @@ export const CHANGE_LAYOUT = 'CHANGE_LAYOUT';
 export const CHANGE_SPEED = 'CHANGE_SPEED';
 export const RESIZE_VIEW = 'RESIZE_VIEW';
 export const CHANGE_TYPE = 'CHANGE_TYPE';
+export const SET_GRID = 'SET_GRID';
